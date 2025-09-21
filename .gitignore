@@ -1,1 +1,5 @@
 training/results/
+.conda/
+old_dir/
+"new dir/"
+lyrics/
