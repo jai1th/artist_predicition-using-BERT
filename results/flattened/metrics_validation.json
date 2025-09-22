@@ -1,0 +1,93 @@
+{
+  "split": "validation",
+  "macro": {
+    "precision": 0.5746665727434958,
+    "recall": 0.547008547008547,
+    "f1": 0.5466548071811229
+  },
+  "weighted": {
+    "precision": 0.5746665727434959,
+    "recall": 0.5470085470085471,
+    "f1": 0.5466548071811228
+  },
+  "per_class": {
+    "Ariana Grande": {
+      "precision": 0.45454545454545453,
+      "recall": 0.5555555555555556,
+      "f1-score": 0.5,
+      "support": 9.0
+    },
+    "Billie Eilish": {
+      "precision": 0.5,
+      "recall": 0.4444444444444444,
+      "f1-score": 0.47058823529411764,
+      "support": 9.0
+    },
+    "Drake": {
+      "precision": 0.75,
+      "recall": 0.6666666666666666,
+      "f1-score": 0.7058823529411765,
+      "support": 9.0
+    },
+    "Ed Sheeran": {
+      "precision": 0.5454545454545454,
+      "recall": 0.6666666666666666,
+      "f1-score": 0.6,
+      "support": 9.0
+    },
+    "Eminem": {
+      "precision": 0.875,
+      "recall": 0.7777777777777778,
+      "f1-score": 0.8235294117647058,
+      "support": 9.0
+    },
+    "Future": {
+      "precision": 0.5555555555555556,
+      "recall": 0.5555555555555556,
+      "f1-score": 0.5555555555555556,
+      "support": 9.0
+    },
+    "Hozier": {
+      "precision": 0.8,
+      "recall": 0.8888888888888888,
+      "f1-score": 0.8421052631578947,
+      "support": 9.0
+    },
+    "Lil Baby": {
+      "precision": 0.8571428571428571,
+      "recall": 0.6666666666666666,
+      "f1-score": 0.75,
+      "support": 9.0
+    },
+    "Post Malone": {
+      "precision": 0.23076923076923078,
+      "recall": 0.3333333333333333,
+      "f1-score": 0.2727272727272727,
+      "support": 9.0
+    },
+    "Sza": {
+      "precision": 0.23076923076923078,
+      "recall": 0.3333333333333333,
+      "f1-score": 0.2727272727272727,
+      "support": 9.0
+    },
+    "Taylor Swift": {
+      "precision": 0.5714285714285714,
+      "recall": 0.4444444444444444,
+      "f1-score": 0.5,
+      "support": 9.0
+    },
+    "The Weeknd": {
+      "precision": 0.5,
+      "recall": 0.1111111111111111,
+      "f1-score": 0.18181818181818182,
+      "support": 9.0
+    },
+    "Travis Scott": {
+      "precision": 0.6,
+      "recall": 0.6666666666666666,
+      "f1-score": 0.631578947368421,
+      "support": 9.0
+    }
+  }
+}

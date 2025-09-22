@@ -1,0 +1,93 @@
+{
+  "split": "test",
+  "macro": {
+    "precision": 0.5892857142857143,
+    "recall": 0.5666666666666665,
+    "f1": 0.551818540936188
+  },
+  "weighted": {
+    "precision": 0.5872093023255814,
+    "recall": 0.5658914728682171,
+    "f1": 0.5502822505558483
+  },
+  "per_class": {
+    "Ariana Grande": {
+      "precision": 0.42857142857142855,
+      "recall": 0.3,
+      "f1-score": 0.35294117647058826,
+      "support": 10.0
+    },
+    "Billie Eilish": {
+      "precision": 0.5,
+      "recall": 0.2,
+      "f1-score": 0.2857142857142857,
+      "support": 10.0
+    },
+    "Drake": {
+      "precision": 0.45,
+      "recall": 0.9,
+      "f1-score": 0.6,
+      "support": 10.0
+    },
+    "Ed Sheeran": {
+      "precision": 0.4166666666666667,
+      "recall": 0.5,
+      "f1-score": 0.45454545454545453,
+      "support": 10.0
+    },
+    "Eminem": {
+      "precision": 0.6666666666666666,
+      "recall": 0.8,
+      "f1-score": 0.7272727272727273,
+      "support": 10.0
+    },
+    "Future": {
+      "precision": 0.6,
+      "recall": 0.6,
+      "f1-score": 0.6,
+      "support": 10.0
+    },
+    "Hozier": {
+      "precision": 0.8571428571428571,
+      "recall": 0.6666666666666666,
+      "f1-score": 0.75,
+      "support": 9.0
+    },
+    "Lil Baby": {
+      "precision": 0.875,
+      "recall": 0.7,
+      "f1-score": 0.7777777777777778,
+      "support": 10.0
+    },
+    "Post Malone": {
+      "precision": 0.75,
+      "recall": 0.3,
+      "f1-score": 0.42857142857142855,
+      "support": 10.0
+    },
+    "Sza": {
+      "precision": 0.6666666666666666,
+      "recall": 0.8,
+      "f1-score": 0.7272727272727273,
+      "support": 10.0
+    },
+    "Taylor Swift": {
+      "precision": 0.5333333333333333,
+      "recall": 0.8,
+      "f1-score": 0.64,
+      "support": 10.0
+    },
+    "The Weeknd": {
+      "precision": 0.5,
+      "recall": 0.3,
+      "f1-score": 0.375,
+      "support": 10.0
+    },
+    "Travis Scott": {
+      "precision": 0.4166666666666667,
+      "recall": 0.5,
+      "f1-score": 0.45454545454545453,
+      "support": 10.0
+    }
+  }
+}
