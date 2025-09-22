@@ -1,7 +1,7 @@
 # Lyrics Artist Classification with ALBERT
 
-This project predicts the **artist of a song from its lyrics** using transformer-based models.  
-We began with a *vanilla ALBERT* pipeline and improved it with a **flattening strategy** to handle long songs fairly.
+This project predicts the **artist of a song from its lyrics** using transformer-based models. This is a hobby project that made me realize that this system is as good as the LLM that produces lyrics in the style of the select artist. Prompt tuning will make the generated lyrics much more cohesive and better represent the artist the LLM wants to mimic.
+I began with a *vanilla ALBERT* pipeline and improved it with a **flattening strategy** to handle long songs fairly.
 
 ---
 
@@ -27,18 +27,48 @@ Sliding windows gave long songs many more training/eval samples. To fix this:
 - **Per-sample evaluation** – averaged logits across chunks before predicting → fair confusion matrices.  
 - **Optional cap** – limited max chunks per song (e.g. 4) to prevent flooding.
 
+### 4. Using GEMMA 4b for lyrics generation
+I used Gemma locally using Ollama to generate lyrics based on the prompts given for the artist style. Once the lyrics are generated, the lryics are classified by Albert. (highly flawed, but interesting stuff to investigate.)
+
 ---
 
 ## 📊 Results
-- **Vanilla**: good accuracy but biased toward artists with longer songs.  
-- **Flattened**: more balanced per-class performance; confusion matrix is much fairer.  
+- **Vanilla**: Good accuracy but biased toward artists with longer songs.  
+- **Flattened**: More balanced per-class performance; confusion matrix is much fairer.
+- *System (LLM + ALBERT Classification)*: Couldn't see how well the system performs because of the time it might take to generate lyrics for each artist multiple time and then classify. The score will be a mystery for now, but maybe I will try to investigate this later on.
 
 ---
 
 ## 🚀 Run
 ```bash
 pip install -r requirements.txt
-python train_vanilla.py
+```
+## To train:
+```bash
+python scripts/trainers/albert_vanilla.py
+python scripts/trainers/albert_weighted.py
+```
+## To generate graphs:
+```bash
+python scripts/graph_gen.py
+```
+
+## To run the system:
+```bash
+# Use the Eminem continuation (default)
+python predict_artist.py
+
+# Use the Hozier-style continuation
+python predict_artist.py --prompt hozier
+
+# Use the Weeknd-style prompt
+python predict_artist.py --prompt weeknd
+
+# Use the “future” continuation prompt (your neon-lights seed)
+python predict_artist.py --prompt future
+
+# Bypass presets and pass a custom prompt
+python predict_artist.py --text "Write minimalistic lyrics about memory and rain in the style of a 90s alt band..."
 ```
 
 Outputs:  
