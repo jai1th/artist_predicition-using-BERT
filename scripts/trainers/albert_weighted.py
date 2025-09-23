@@ -1,4 +1,3 @@
-# train_vanilla.py (per-sample fair training + per-sample evaluation)
 import inspect
 import os, json, random
 from dataclasses import dataclass, asdict
@@ -27,15 +26,13 @@ class Config:
     val_ratio: float = 0.10
     test_ratio: float = 0.10
     max_length: int = 256
-    # token windows (True = slide windows; False = single window w/ truncation)
     windowing: bool = True
-    stride: int = 192                     # used only if windowing=True; <= max_length
+    stride: int = 192
     dropout: float = 0.2
     logging_steps: int = 50
     num_workers: int = 2
     report_to_tb: bool = False
-    # NEW: cap chunks per original sample (None to disable; try 4)
-    max_chunks_per_sample: int | None = None
+    max_chunks_per_sample: int | None = None #disabling chunking. Makes the training slower but gives better class accuracy
 # ======================================
 
 CONFIG = Config()
@@ -134,7 +131,7 @@ def confusion_per_sample(trainer: Trainer, ds, id2label: dict, outdir: str, tag:
     by_idx_label  = {}
     for logit, lab, sid in zip(logits, y_chunk, sample_idx):
         by_idx_logits[int(sid)].append(logit)
-        by_idx_label[int(sid)] = int(lab)  # same for all chunks
+        by_idx_label[int(sid)] = int(lab)
 
     y_true, y_pred = [], []
     for sid, ll in by_idx_logits.items():
@@ -153,8 +150,7 @@ def confusion_per_sample(trainer: Trainer, ds, id2label: dict, outdir: str, tag:
     np.save(os.path.join(outdir, f"confusion_{tag}_per_sample.npy"), cm)
     with open(os.path.join(outdir, f"classification_{tag}_per_sample.txt"), "w", encoding="utf-8") as f:
         f.write(report)
-    # also return a compact dict for quick viewing
-    # (not strictly necessary, but can be handy if you log elsewhere)
+
     return {
         "support": dict(Counter(y_true)),
         "macro_f1": precision_recall_fscore_support(y_true, y_pred, average="macro", zero_division=0)[2],

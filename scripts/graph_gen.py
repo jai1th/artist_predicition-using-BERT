@@ -1,5 +1,3 @@
-# eval_confusion_minimal.py
-# pip install torch transformers datasets scikit-learn matplotlib sentencepiece
 from transformers import DataCollatorWithPadding
 import os, json
 import numpy as np
@@ -10,8 +8,8 @@ from sklearn.metrics import confusion_matrix, classification_report, precision_r
 import torch
 
 # ----------------- EDIT THESE -----------------
-MODEL_DIR = "results_flatten/albert-base-v2.vanilla/checkpoint-1734"            # your checkpoint/run folder
-DATA_PATH = "data/lyrics_dataset.json"          # your dataset with fields: text, label
+MODEL_DIR = "path/to.the/scheckpoint/dir"
+DATA_PATH = "data/lyrics_dataset.json"
 VAL_RATIO = 0.10
 TEST_RATIO = 0.10
 SEED = 42
@@ -22,14 +20,13 @@ SORT_BY_SUPPORT = True
 # ----------------------------------------------
 
 def load_label_names(model_dir, model):
-    # Prefer model.config.id2label
+
     id2label = getattr(model.config, "id2label", None)
     if id2label:
         if isinstance(id2label, dict):
             keys = sorted(id2label.keys(), key=lambda k: int(k))
             return [id2label[k] for k in keys]
         return list(id2label)
-    # Fallback to labels.json
     with open(os.path.join(model_dir, "labels.json")) as f:
         meta = json.load(f)
     id2 = meta["id2label"]

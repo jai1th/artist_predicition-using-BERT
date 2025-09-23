@@ -26,13 +26,9 @@ Used rap as my shelter, escaped in the rain."""
 
 prompt_eminem = f"""You're a rapper like Eminem, telling raw, emotional stories with tight rhyme schemes and fast flow. Continue these lyrics with intensity and rhythm:\n\n{seed_lyrics_eminem}\n"""
 
-# predicted_artist = generator.main(prompt_eminem)
-
-# print("The predicted artist is: ", predicted_artist)
-
 PROMPTS = {
     "weeknd": prompt_weeknd,
-    "future": prompt_future,   # (this is your “continue the seed_lyrics_future” prompt)
+    "future": prompt_future,
     "hozier": prompt_hoz,
     "eminem": prompt_eminem,
 }
@@ -47,7 +43,7 @@ def main():
         default="eminem",
         help="Which predefined prompt to use (default: eminem)."
     )
-    # Optional: allow a custom free-text prompt instead of predefined
+# this allows the user to make custome prompts for the llm
     ap.add_argument(
         "--text",
         type=str,
