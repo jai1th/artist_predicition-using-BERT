@@ -1,9 +1,3 @@
-# train_vanilla.py
-# Train a fresh HF classification model (no resume) on your lyrics dataset.
-# Expects a JSONL or JSON file with fields: {"text": "...", "label": "..."}.
-# Usage (example):
-#   python train_vanilla.py --data ubernew/data/lyrics_dataset.json --model roberta-base --out results/roberta-base.vanilla
-
 import argparse, os, json, random, numpy as np
 from datasets import load_dataset, DatasetDict
 from transformers import (AutoTokenizer, AutoModelForSequenceClassification,
